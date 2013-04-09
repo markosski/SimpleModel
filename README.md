@@ -21,11 +21,11 @@ USAGE
 =====
 
 This should be called only once in the script for the table.
-This will create and instance of the object with set columns and properties.
+This will create an instance of the table object.
 	
-	sm = simplemodel.SimpleModelFactory(DbAdapter(db), 'users')    
+	sm = simplemodel.Make(db, 'users')
 
-This will return a record object coresponding to user with ID = 1
+This will return a record object coresponding to user ID = 1
 
 	user = sm.getInstance().filter({'userID':1}).get()
 
@@ -63,12 +63,10 @@ internally and passes it to iterable object it's advisible to use limit.
 
 	obj = users.getInstance()
 	objects = obj.limit(10).getAll() # return first 10 records
-
-or
-
+	# or 
 	objects = obj.limit(10, 10).getAll() # return 10 next records starting at 10
 	
-Now let's show an example of filter use with orderBy and limit
+Now let's show an example of filter usage with orderBy and limit
 	
 	obj = users.getInstance()
 	object = obj.filter({'userName': 'Marcin', 'userName': 'Andrew'})\
