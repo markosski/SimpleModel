@@ -9,13 +9,12 @@ It allows for retrieving records from table as well as creating, updating and
 deleting.
 Simple model will work with the following table setups:
 
-1. If table has one column primary key, it requires that columns to be 
-    autoincrement. 
+* If table has one column primary key, it requires that columns to be autoincrement. 
 
-2. If table has compound primary key consisting of 2 or more columns, it will 
-    require those columns to be set in the object before inserting or updating
-    record. When inserting or updating simplemodel will use "REPLACE INTO" 
-    statement.
+*  If table has compound primary key consisting of 2 or more columns, it will 
+require those columns to be set in the object before inserting or updating
+record. When inserting or updating simplemodel will use "REPLACE INTO" 
+statement.
 
 USAGE
 =====
@@ -39,7 +38,7 @@ getAll() return iterable object that when accessed returns record object.
 RETRIEVING RECORDS
 ------------------
 
-1. How to deal with OR, AND statement in MySQL query.
+1.  How to deal with OR, AND statement in MySQL query.
 
 This will return an object coresponding to users of name Marcin or Andrew.
 
@@ -52,12 +51,12 @@ Marcin and age 31.
     obj = users.getInstance()
     objects = obj.filter({'userName': 'Marcin').filter({'userAge': 31}).getAll()
 
-2. Ordering records
+2.  Ordering records
 
     obj = users.getInstance()
     objects = obj.orderBy({'userAge': 'desc'}).getAll()
 
-3. Limiting records
+3.  Limiting records
 
 Limiting records is very important. You would not want to use getAll() on 
 huge result set. Since simplemodel saves all results as dictionary 
