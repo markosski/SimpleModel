@@ -40,12 +40,13 @@ RETRIEVING RECORDS
 ------------------
 
 1. How to deal with OR, AND statement in MySQL query.
+
 This will return an object coresponding to users of name Marcin or Andrew.
 
     obj = users.getInstance()
     objects = obj.filter({'userName': 'Marcin', 'userName': 'Andrew'}).getAll()
 
-In this example records we return records that corespond to user name 
+In this example we return records that corespond to user name 
 Marcin and age 31.
 
     obj = users.getInstance()
@@ -57,13 +58,13 @@ Marcin and age 31.
     objects = obj.orderBy({'userAge': 'desc'}).getAll()
 
 3. Limiting records
+
 Limiting records is very important. You would not want to use getAll() on 
 huge result set. Since simplemodel saves all results as dictionary 
 internally and passes it to iterable object it's advisible to use limit.
 
     obj = users.getInstance()
-    objects = obj.limit(10).getAll() # return first 10 records
-    # or 
+    objects = obj.limit(10).getAll() # return first 10 records 
     objects = obj.limit(10, 10).getAll() # return 10 next records starting at 10
     
 Now let's show an example of filter usage with orderBy and limit
